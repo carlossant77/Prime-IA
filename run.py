@@ -14,7 +14,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY", "default_secret")
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode="threading")
 
 GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -118,4 +118,5 @@ async def registrar_mensagem(nome, mensagem, resposta):
         print("Erro ao registrar pedido:", str(e))
  
 if __name__ == '__main__':
+
     socketio.run(app, host='127.0.0.1', port=80, debug=True)
