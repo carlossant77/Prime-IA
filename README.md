@@ -20,5 +20,5 @@ Este repositório contem uma **Inteligência Artificial (Prime IA)** realizada u
 - Python instalado na máquina.
 - Biblioteca Flask instalada.
 - Instalação do microframework Socket.IO.
-(DEMAIS REQUISITOS DISPONÍVEIS DENTRO DO ARQUIVO: requirements.txt)
+- (DEMAIS REQUISITOS DISPONÍVEIS DENTRO DO ARQUIVO: requirements.txt)
 
