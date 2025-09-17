@@ -1,0 +1,12 @@
+Flask==3.0.3
+Flask-SocketIO==5.3.6
+python-socketio==5.11.2
+python-engineio==4.9.1
+gunicorn==23.0.0
+eventlet==0.35.2
+pytz==2025.2
+requests==2.32.3
+asyncio==4.0.0
+DateTime==5.5
+aiohttp==3.12.15
+python-dotenv==1.1.1
