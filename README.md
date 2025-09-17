@@ -22,3 +22,9 @@ Este repositório contem uma **Inteligência Artificial (Prime IA)** realizada u
 - Instalação do microframework Socket.IO.
 - **(DEMAIS REQUISITOS DISPONÍVEIS DENTRO DO ARQUIVO: requirements.txt)**
 
+# GUIA DE UTILIZAÇÃO 📝
+- Passo 1: Realizar a instalação do projeto na sua máquina e realizar o download de todas as bibliotecas necessárias.
+- Passo 2: Crie a sua própria IA utilizando o link: https://console.groq.com/home. Copie e **GUARDE** a sua chave da API criada, altere o nome do arquivo de "env.example" para --> .env e insira a chave copiada no trecho em que ela é solicitada (Não compartilhe a sua chave da IA com ninguém).
+- Passo 3: Inicializar o projeto no terminal python e testar livremente.
+- PASSOS ADICIONAIS E OPCIONAIS: A aplicação já funciona corretamente com a execução dos passos 1, 2 e 3, porém, para implementar a automatização de processamento de conversas com a plataforma Make, basta gerar um ambiente com um "webhook" para tratar os dados, e criar uma planilha correspondente no Google Sheets para armazenar. Copie o seu link do webhook e cole na página "run.py" na linha 101.
+
