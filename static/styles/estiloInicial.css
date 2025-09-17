@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+/* Container central */
+.container {
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  font-size: 8rem;
+  margin-bottom: 5px;
+}
+
+.prime, .infinity {
+  background: linear-gradient(90deg, #7e3dff, #c719fe);
+  background-clip: text;         /* Firefox */
+  -webkit-background-clip: text; /* Chrome/Safari */
+  color: transparent;            /* Fallback */
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtítulo */
+p {
+  font-size: 1.75rem;
+  margin-bottom: 80px;
+}
+
+.blue {
+  color: #783efa;
+  font-weight: bold;
+}
+
+.pink {
+  color: #f602fc;
+  font-weight: bold;
+}
+
+.seus {
+  font-family: Poppins;
+  font-weight: 200;
+}
+.seus-e {
+  font-family: Poppins;
+  font-weight: 200;
+}
+
+/* Botão simples */
+.btn {
+  padding: 15px 40px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(75deg, #7a3ffe, #f005ff);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/* animação botão estilizado */ 
+.btn-17,
+.btn-17 *,
+.btn-17 :after,
+.btn-17 :before,
+.btn-17:after,
+.btn-17:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-17 {
+  -webkit-tap-highlight-color: transparent;
+  background: linear-gradient(75deg, #7a3ffe, #f005ff); /* degrade no botão */
+  color: #fff; /* texto sempre branco */
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+  font-size: 1.8rem; /* texto maior */
+  font-weight: 900;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0.8rem 2.5rem; /* botão ajustado ao texto */
+  border-radius: 99rem;
+  border: none; /* remove borda */
+  z-index: 0;
+}
+
+.btn-17:disabled {
+  cursor: default;
+}
+
+.btn-17:-moz-focusring {
+  outline: auto;
+}
+
+.btn-17 svg {
+  display: block;
+}
+
+.btn-17 [hidden] {
+  display: none;
+}
+
+.btn-17,
+.btn-17 .text-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-17 .text-container {
+  display: block;
+}
+
+.btn-17 .text {
+  display: block;
+  position: relative;
+  color: #fff; /* texto sempre branco */
+  transition: color 0.3s ease;
+}
+
+.btn-17:hover .text {
+  -webkit-animation: move-up-alternate 0.3s forwards;
+  animation: move-up-alternate 0.3s forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(80%); }
+  51% { transform: translateY(-80%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes move-up-alternate {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(80%); }
+  51% { transform: translateY(-80%); }
+  to { transform: translateY(0); }
+}
+
+.btn-17:after,
+.btn-17:before {
+  --skew: 0.2;
+  background: linear-gradient(90deg, #f005ff, #7a3ffe); /* degrade no efeito */
+  content: "";
+  display: block;
+  height: 102%;
+  left: calc(-50% - 50% * var(--skew));
+  pointer-events: none;
+  position: absolute;
+  top: -104%;
+  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.btn-17:after {
+  --progress: 0%;
+  left: calc(50% + 50% * var(--skew));
+  top: 102%;
+  z-index: -1;
+}
+
+.btn-17:hover:before { --progress: 100%; }
+.btn-17:hover:after { --progress: -102%; }
+
+/*-------------------------------------------------------------------------------------------------------*/
+/* Animação de escrita */
+.cursor {
+  display: inline-block;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 1em; /* acompanha o <p> */
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.typewriter-animation {
+  animation: 
+    typewriter 3s steps(40, end) 1s 1 normal both,
+    blinkingCursor 500ms steps(50) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; } /* só até o tamanho do span */
+}
+
+@keyframes blinkingCursor {
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Apenas o "IA" com efeito animado */
+.prime {
+  font-weight: bold;
+  color: transparent;
+  background: linear-gradient(90deg, #00f, #f0f, #00f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: brilho-ia 3s linear infinite;
+}
+
+@keyframes brilho-ia {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+
+/*responsividade*/
+
+@media (max-width: 1200px) {
+  h1 { font-size: 6rem; }
+  p { font-size: 1.5rem; margin-bottom: 60px; }
+  .btn-17 { font-size: 1.6rem; padding: 0.7rem 2rem; }
+  img { width: 140px; }
+}
+
+@media (max-width: 992px) {
+  h1 { font-size: 5rem; }
+  p { font-size: 1.4rem; margin-bottom: 50px; }
+  .btn-17 { font-size: 1.5rem; padding: 0.6rem 1.8rem; }
+  img { width: 120px; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 4rem; flex-direction: column; gap: 15px; }
+  p { font-size: 1.25rem; margin-bottom: 40px; }
+  .btn-17 { font-size: 1.4rem; padding: 0.6rem 1.5rem; }
+  img { width: 100px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 3rem; }
+  p { font-size: 1.1rem; margin-bottom: 30px; }
+  .btn-17 { font-size: 1.2rem; padding: 0.5rem 1.2rem; }
+  img { width: 80px; }
+}

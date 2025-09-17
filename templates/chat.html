@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime IA</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+  <link rel="stylesheet" href="/static/styles/estilo.css">
+</head>
+
+<body>
+  <div class="container" style="display: flex; justify-content: center;">
+    <div class="lateral">
+      <a style="height: 3%; display: flex; justify-self: center; align-items: center; margin-top: 30px; text-decoration: none;" href="/">
+        <span class="titulo-linear" style="font-size: 40px;">Prime</span>&nbsp; <b style="font-size: 40px; color: white;">IA</b> &nbsp;
+        <span><img src="/static/assets/babu.png" alt="" width="60px"></span>
+      </a>
+
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="sidebar" id="sidebar">
+        <h2>Seus chats</h2>
+        <ul id="chat-list">
+          <li onclick="novoChat()">Iniciar novo chat</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Área principal -->
+    <main class="chat-area">
+      <header class="welcome" id="welcome">
+        <h1 style="font-size: 60px;">Olá, <span id="username" class="titulo-linear"></span>.</h1>
+        <p style="font-size: 30px;">Como a <span class="logo">Prime</span> <b>IA</b> irá te ajudar hoje?</p>
+      </header>
+
+      <div class="mensagens" id="mensagens" style="display: none;"></div>
+
+      <footer class="input-area">
+        <input type="text" id="mensagem" placeholder="Insira a sua mensagem">
+        <button id="send-btn" onclick="enviarMensagem()">▶</button>
+      </footer>
+
+      <button class="clear-btn" onclick="limparChat()">
+        <img src="/static/assets/lixeira.png" alt="" width="20px" style="vertical-align: baseline;"> Excluir Chat
+      </button>
+    </main>
+  </div>
+
+  <script>
+    const socket = io();
+    const mensagensDiv = document.getElementById("mensagens");
+    const input = document.getElementById("mensagem");
+    const username = document.getElementById("username");
+
+    // Nome simulado
+    username.innerText = navigator.userAgent.includes("Windows") ? "José" : "Usuário";
+
+    // Enviar mensagem
+    function enviarMensagem() {
+      const msg = input.value.trim();
+      if (!msg) {
+        alert("O campo de mensagem está em branco.");
+        return;
+      }
+
+      adicionarMensagem("Você", msg, "user");
+      socket.emit("enviar_mensagem", { mensagem: msg });
+      input.value = "";
+    }
+
+    // Receber resposta
+    socket.on("resposta_webhook", function (data) {
+      adicionarMensagem("Prime IA", data.resposta, "bot");
+    });
+
+    // Exibir mensagens
+    function adicionarMensagem(remetente, texto, tipo) {
+      const welcome = document.getElementById("welcome");
+
+      // Esconder a mensagem de boas-vindas e mostrar a área do chat
+      if (welcome.style.display !== "none") {
+        welcome.style.display = "none";
+        mensagensDiv.style.display = "flex";
+      }
+
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("mensagem", tipo); // user ou bot
+      msgDiv.innerHTML = `
+      <div class="remetente">${remetente}</div>
+      <div class="texto">${texto}</div>`;
+      mensagensDiv.appendChild(msgDiv);
+      mensagensDiv.scrollTop = mensagensDiv.scrollHeight;
+    }
+
+    // Novo chat
+    function novoChat() {
+      mensagensDiv.innerHTML = "";
+      document.getElementById("welcome").style.display = "flex";
+      mensagensDiv.style.display = "none";
+    }
+
+    // Limpar
+    function limparChat() {
+      mensagensDiv.innerHTML = "";
+    }
+
+    // Enter envia
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") enviarMensagem();
+    });
+
+    // Função para alternar a visibilidade da sidebar
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active");
+    }
+    
+  </script>
+</body>
+
+</html>
+
