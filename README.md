@@ -28,9 +28,12 @@ Este repositório contem uma **Inteligência Artificial (Prime IA)** realizada u
 - Passo 3: Inicializar o projeto no terminal python e testar livremente.
 - PASSOS ADICIONAIS E OPCIONAIS: A aplicação já funciona corretamente com a execução dos passos 1, 2 e 3, porém, para implementar a automatização de processamento de conversas com a plataforma Make, basta gerar um ambiente com um "webhook" para tratar os dados, e criar uma planilha correspondente no Google Sheets para armazenar. Copie o seu link do webhook e cole na página "run.py" na linha 101.
 
-# Demonstração da Aplicação 📈
+# Demonstração da Aplicação 🚀
 A aplicação pode ser testada através: [Deste Link](https://prime-ia-santiago.onrender.com). **OLHAR AS OBSERVAÇÕES ANTES DE TESTAR**
 
 # Link de Download 💾
 A aplicação web pode ser baixada e testada, para implementação de melhorias ou fins educacionais através: [Deste Link](https://downgit.github.io/#/home?url=https://github.com/carlossant77/Prime-IA)
+
+# Comentários do Autor 📚
+**OBSERVAÇÃO:** A demonstração da aplicação serve apenas para consulta do DESIGN da IA, visto que a IA não funcionará por não conter nenhuma chave atribuida a ela. Você pode criar uma chave e atribuir seguindo o passo a passo no GUIA DE UTILIZAÇÃO. A página inicial pode demorar um pouco para carregar o seu design, considere recarregar a página algumas vezes.
 
