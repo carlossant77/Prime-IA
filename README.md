@@ -32,5 +32,5 @@ Este repositório contem uma **Inteligência Artificial (Prime IA)** realizada u
 A aplicação pode ser testada através: [Deste Link](https://prime-ia-santiago.onrender.com). **OLHAR AS OBSERVAÇÕES ANTES DE TESTAR**
 
 # Link de Download 💾
-A aplicação web pode ser baixada e testada, para implementação de melhorias ou fins educacionais através: [Deste Link](https://downgit.github.io/#/home?url=http://github.com/carlossant77/jj-finances)
+A aplicação web pode ser baixada e testada, para implementação de melhorias ou fins educacionais através: [Deste Link](https://downgit.github.io/#/home?url=https://github.com/carlossant77/Prime-IA)
 
